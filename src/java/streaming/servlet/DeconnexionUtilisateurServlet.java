@@ -43,20 +43,23 @@ public class DeconnexionUtilisateurServlet extends HttpServlet {
 //        } catch (InterruptedException ex) {
 //            Logger.getLogger(DeconnexionUtilisateurServlet.class.getName()).log(Level.SEVERE, null, ex);
 //        }
+        
+//premiere methode coté utilisateur
+//        Cookie c;
+//        c = new Cookie("login", "test");
+//        c.setMaxAge(0);
+//        response.addCookie(c);
+//        
+//        c = new Cookie("mdp", null);
+//        c.setMaxAge(0);
+//        response.addCookie(c);
+//        
+//        c = new Cookie("util_type", null);
+//        c.setMaxAge(0);
+//        response.addCookie(c);
 
-        Cookie c;
-        
-        c = new Cookie("login", "test");
-        c.setMaxAge(0);
-        response.addCookie(c);
-        
-        c = new Cookie("mdp", null);
-        c.setMaxAge(0);
-        response.addCookie(c);
-        
-        c = new Cookie("util_type", null);
-        c.setMaxAge(0);
-        response.addCookie(c);
+        //Méthode session coté serveur
+        request.getSession().removeAttribute("utilConnecte");
 
     response.sendRedirect("connexion_utilisateur");
     }
